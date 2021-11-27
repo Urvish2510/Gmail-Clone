@@ -1,12 +1,25 @@
-.section{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 15px;
-    min-width: 200px;
+.section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+  min-width: 200px;
+  color: gray;
+  cursor: pointer;
+  border-width: 0 !important;
 }
 
-.section__selected{
-    background-color: whitesmoke;
-    border-width: 3px !important;
+.section__selected {
+  background-color: whitesmoke;
+  border-width: 3px !important;
+}
+
+.section:hover {
+  background-color: whitesmoke;
+  border-width: 3px !important;
+}
+
+.section > h4 {
+    font-size: 14px;
+    margin-left: 15px;
 }
