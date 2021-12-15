@@ -1,7 +1,6 @@
 import { Button, IconButton } from "@mui/material";
 import React from "react";
 import "./Sidebar.css";
-import AddIcon from "@mui/icons-material/Add";
 import InboxIcon from "@mui/icons-material/Inbox";
 import SidebarOption from "./SidebarOption";
 import StarIcon from "@mui/icons-material/Star";
@@ -20,12 +19,13 @@ function Sidebar() {
 
   return (
     <div className="sidebar">
-      <Button
-        className="sidebar__compose"
-        startIcon={<AddIcon fontSize="large" />}
-        onClick={() => dispatch(openSendMessage())}
-      >
-        Compose
+      <Button className="sidebar__compose" onClick={() => dispatch(openSendMessage())}>
+          <img
+            className="compose__Image"
+            src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png"
+            alt="+"
+          />
+            <p className="compose">Compose</p>
       </Button>
 
       <SidebarOption
