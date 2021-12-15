@@ -13,6 +13,7 @@
 .header__left > img{
     object-fit: contain;
     height: 80px;
+    width: 140px;
     margin-left: 5px;
 }
 

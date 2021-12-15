@@ -15,7 +15,7 @@ function Header() {
           <MenuIcon />
         </IconButton>
         <img
-          src="https://i.pinimg.com/originals/ae/47/fa/ae47fa9a8fd263aa364018517020552d.png"
+          src="https://logodownload.org/wp-content/uploads/2018/03/gmail-logo-1-1.png"
           alt=""
         />
       </div>
