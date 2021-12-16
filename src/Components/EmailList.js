@@ -14,16 +14,23 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import "./EmailList.css";
 import Section from "./Section";
 import EmailRow from "./EmailRow";
-import { db } from "../firebase";
-import {
-  collection,
-  query,
-  orderBy,
-  doc,
-  onSnapshot,
-} from "firebase/firestore";
+import { db } from "../Firebase/firebase";
+import { collection, onSnapshot } from "firebase/firestore";
 
 function EmailList() {
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "emails"), (snapshot) =>
+      setEmails(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return unsubscribe;
+  }, []);
 
   return (
     <div className="emailList">
@@ -70,19 +77,16 @@ function EmailList() {
       </div>
 
       <div className="emailList__list">
-        
-        <EmailRow
-          title="spider"
-          subject="Running on Buildings!"
-          description="1 number no Nang"
-          time="11:04 pm"
-        />
-        <EmailRow
-          title="spider"
-          subject="Running on Buildings!"
-          description="1 number no Nang"
-          time="11:04 pm"
-        />
+        {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
+          <EmailRow
+            id={id}
+            key={id}
+            title={to}
+            subject={subject}
+            description={message}
+            time={new Date(timestamp?.seconds * 1000).toUTCString()}
+          />
+        ))}
       </div>
     </div>
   );

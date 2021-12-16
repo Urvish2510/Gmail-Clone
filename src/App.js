@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SendMail from "./Components/SendMail";
 import { useSelector } from "react-redux";
 import { selectSendMessageIsOpen } from "./features/mailSlice";
+require('dotenv').config();
 
 function App() {
 const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);

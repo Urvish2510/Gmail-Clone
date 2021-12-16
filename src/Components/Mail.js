@@ -13,9 +13,12 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PrintIcon from "@mui/icons-material/Print";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
+import { useSelector } from "react-redux";
+import { selectOpenMail } from "../features/mailSlice";
 
 function Mail() {
   const navigate = useNavigate();
+  const selectedMail = useSelector(selectOpenMail);
 
   return (
     <div style={{ flex: "1", backgroundColor: "whitesmoke" }}>
@@ -98,7 +101,7 @@ function Mail() {
             position: "relative",
           }}
         >
-          <h2 style={{ fontWeight: "400", marginRight: "20px" }}>Subject</h2>
+          <h2 style={{ fontWeight: "400", marginRight: "20px" }}>{selectedMail?.subject}</h2>
           <LabelImportantIcon style={{ color: "#e8ab02" }} />
           <p
             style={{
@@ -107,7 +110,7 @@ function Mail() {
               overflowWrap: "break-word",
             }}
           >
-            Title
+            {selectedMail?.title}
           </p>
           <p
             style={{
@@ -118,11 +121,11 @@ function Mail() {
               color: "gray",
             }}
           >
-            11:04 pm
+            {selectedMail?.time}
           </p>
         </div>
 
-        <div style={{ marginLeft: "20px" }}>This is a Message</div>
+        <div style={{ marginLeft: "20px" }}>{selectedMail?.description}</div>
       </div>
     </div>
   );

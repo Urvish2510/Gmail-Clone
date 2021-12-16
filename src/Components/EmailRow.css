@@ -33,7 +33,10 @@
 }
 
 .emailRow__title {
+  width: 100px;
   font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex: 0.3;
 }
 
