@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Mail from "./Mail.js";
-import EmailList from "./EmailList";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import SendMail from "./SendMail";
+import Header from "./Components/Header";
+import Sidebar from "./Components/Sidebar";
+import Mail from "./Components/Mail.js";
+import EmailList from "./Components/EmailList";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SendMail from "./Components/SendMail";
 import { useSelector } from "react-redux";
 import { selectSendMessageIsOpen } from "./features/mailSlice";
 
